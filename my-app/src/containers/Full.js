@@ -1,15 +1,19 @@
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
+import { Col, Container, Row } from "react-bootstrap";
 
-function Full() {
+import Header from "../components/Header";
+import Sidebar from "../components/Sidebar";
+
+function Full(props) {
   return (
-    <Container fluid>
-      <Row>
-        <Col>1 of 1</Col>
-      </Row>
-      <Row>
-        <Col></Col>
+    <Container fluid className="p-0">
+      <Header className="App-header" />
+      <Row className="App-main d-flex">
+        <Col xs={2} md={3}>
+          <Sidebar/>
+        </Col>
+        <Col xs={8} md={9} as="main">
+          {props.children}
+        </Col>
       </Row>
     </Container>
   );
